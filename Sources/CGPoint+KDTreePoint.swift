@@ -21,10 +21,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
-#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
-    import CoreGraphics
-#endif
+#if canImport(CoreGraphics)
+import CoreGraphics
 
 extension CGPoint: KDTreePoint {
     public static var dimensions = 2
@@ -39,3 +37,4 @@ extension CGPoint: KDTreePoint {
         return Double(x*x + y*y)
     }
 }
+#endif
