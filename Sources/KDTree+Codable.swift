@@ -21,7 +21,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+#if !os(WASI)
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
+#endif
 
 private struct NodeBox<Element: KDTreePoint> {
     let left: KDTree<Element>
@@ -88,7 +94,7 @@ extension KDTree: Decodable where Element: Decodable {
         }
     }
 }
-
+#if !os(WASI)
 extension KDTree where Element: Encodable {
     
     public func save(to path: URL) throws {
@@ -112,3 +118,4 @@ extension KDTree where Element: Decodable {
 #endif
     }
 }
+#endif

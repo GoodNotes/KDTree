@@ -21,7 +21,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
 
 public func == <T> (lhs: KDTree<T>, rhs: KDTree<T>) -> Bool {
     switch (lhs, rhs) {
